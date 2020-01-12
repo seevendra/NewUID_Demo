@@ -1,0 +1,21 @@
+<mat-toolbar color="warn" class="toolbar_fixed">
+  <button mat-icon-button td-menu-button (click)="onToggleSidenav()" >
+  <mat-icon>menu</mat-icon>
+</button>
+  <span>Unified Investment Dashboard</span>
+
+  <!-- This fills the remaining space of the current row -->
+  <span class="header-fill-remaining-space"></span>
+
+  <td-notification-count color="primary" positionX="before" [notifications]="true">
+    <mat-icon>person</mat-icon> 
+  </td-notification-count>
+   
+  <button mat-icon-button [matMenuTriggerFor]="toolbarMenu1"><mat-icon>more_vert</mat-icon></button>
+  <mat-menu #toolbarMenu1="matMenu">
+      <button mat-menu-item>
+      <mat-icon>exit_to_app</mat-icon>
+      <span>Sign out</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>

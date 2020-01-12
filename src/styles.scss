@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
+/*@import "https://fonts.googleapis.com/icon?family=Material+Icons";*/
+@import '~@angular/material/theming';
+@import '~@covalent/core/theming/all-theme';
+
+/*@include mat-core();
+ 
+$candy-app-primary: mat-palette($mat-indigo);
+$candy-app-accent:  mat-palette($mat-pink, A200, A100, A400);
+$candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent);
+
+@include angular-material-theme($candy-app-theme);*/
+
+mat-icon{
+	font-family: 'Material Icons' !important;
+}
+
+/*$primary: mat-palette($mat-purple, 700);
+$accent: mat-palette($mat-teal, A700, A100, A400);*/
+
+body,html{
+	margin: 0;
+	height: 100%;
+	box-sizing: border-box;
+    max-width: 100%;
+    background-color: #303030;
+}
+
+.header-fill-remaining-space {
+  /* This fills the remaining space, by using flexbox. 
+     Every toolbar row uses a flexbox row layout. */
+  flex: 4 1 auto;
+}
+
+mat-sidenav-container, mat-sidenav-content, mat-sidenav {
+    height: 100%;
+}
+ 
+mat-sidenav {
+    width: 250px;
+}

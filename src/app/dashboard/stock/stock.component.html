@@ -1,0 +1,161 @@
+
+<div style="text-align:center">
+  <h1>
+    stock works!
+  </h1>
+<div style="width:100%">
+<div layout-gt-xs="row">
+  <mat-card flex-gt-xs="50" class="card_layout">
+  	<mat-card-header>
+	  <mat-card-title>Investment Summary</mat-card-title></mat-card-header> 
+  	<mat-card-content>		
+		<div style="display: block">
+	  	<canvas baseChart
+				  [data]="pieChartData"
+				  [options]="pieOptions"
+	              [labels]="pieChartLabels"
+	              [chartType]="pieChartType"></canvas>
+		</div>
+	</mat-card-content>
+  </mat-card>
+
+  <mat-card flex-gt-xs="50" class="card_layout">
+  	<mat-card-header>
+  	<mat-card-title>Investment Performance</mat-card-title></mat-card-header>
+  	<mat-card-content>
+	  	<div>
+  <div style="display: block">
+    <canvas baseChart
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [legend]="barChartLegend"
+            [chartType]="barChartType">
+    </canvas>
+  </div>
+</div>
+	</mat-card-content>
+  </mat-card>
+    
+
+  <mat-card flex-gt-xs="50" class="card_layout">
+    <mat-card-header>
+  	<mat-card-title>Fund Average Duration (Yrs.)</mat-card-title></mat-card-header>
+	  <mat-card-content>		
+		<div style="display: block">
+	  	<canvas baseChart
+				  [data]="donutChartData"
+				  [options]="pieOptions"
+	              [labels]="pieChartLabels"
+	              [chartType]="donutChartType"></canvas>
+		</div>
+	</mat-card-content>
+    </mat-card>
+</div>
+<div layout-gt-xs="row">
+	<div flex-gt-xs="100" flex-gt-sm="100" >
+		 	<mat-card  class="" style="height: auto;
+		    padding: 20px;
+		    margin: 20px;">
+		    <mat-card-header>
+				  <mat-card-title>Holdings Details</mat-card-title>
+			</mat-card-header>
+
+			  <mat-card-content class="content_overflow">	
+
+				<mat-tab-group color="warn">
+					<mat-tab label="Mutual Funds"> 
+					<div style="padding:10px; padding-bottom:20px; border: 1px solid lightslategray">						
+					<div style="display: block;">
+					<table td-data-table>
+				      <thead>
+					      <tr td-data-table-column-row>
+					      	<th td-data-table-column>Symbol</th>
+					        <th *ngFor="let label of MutualFundsDataLabels" td-data-table-column>{{label}}</th>
+					      </tr>																
+			  		 </thead>
+			  		 <tbody>
+				      <tr td-data-table-row *ngFor="let d of MutualFundsData; let i=index" [class]="'line-'+i">
+				      	<td td-data-table-cell>{{d.label}}</td>
+				        <td td-data-table-cell *ngFor="let label of MutualFundsDataLabels; let j=index">{{d && d.data[j]}}</td>
+				      </tr>
+				     </tbody>
+			        </table>
+					</div>
+					</div>
+					
+					</mat-tab>
+					<mat-tab label="Cash Funds"> 					
+					<div style="padding:10px; padding-bottom:20px;  border: 1px solid lightslategray">
+					<div style="display: block;">
+					<table td-data-table>
+				      <thead>
+					      <tr td-data-table-column-row>
+					      	<th td-data-table-column>Symbol</th>
+					        <th *ngFor="let label of CashDataLabels" td-data-table-column>{{label}}</th>
+					      </tr>																
+			  		 </thead>
+			  		 <tbody>
+				      <tr td-data-table-row *ngFor="let d of CashFundsData; let i=index" [class]="'line-'+i">
+				      	<td td-data-table-cell>{{d.label}}</td>
+				        <td td-data-table-cell *ngFor="let label of CashDataLabels; let j=index">{{d && d.data[j]}}</td>
+				      </tr>
+				     </tbody>
+			        </table>
+					</div>
+				</div>
+
+				</mat-tab>
+					<mat-tab label="Retirement Plans"> 
+					<div style="padding:10px; padding-bottom:20px; border: 1px solid lightslategray">
+					<div style="display: block;">
+					<table td-data-table>
+				      <thead>
+					      <tr td-data-table-column-row>
+					      	<th td-data-table-column>Symbol</th>
+					        <th *ngFor="let label of RetirePlanDataLabels" td-data-table-column>{{label}}</th>
+					      </tr>																
+			  		 </thead>
+			  		 <tbody>
+				      <tr td-data-table-row *ngFor="let d of RetirePlanFundsData; let i=index" [class]="'line-'+i">
+				      	<td td-data-table-cell>{{d.label}}</td>
+				        <td td-data-table-cell *ngFor="let label of RetirePlanDataLabels; let j=index">{{d && d.data[j]}}</td>
+				      </tr>
+				     </tbody>
+			        </table>
+					</div>
+				</div>
+
+				</mat-tab>
+				</mat-tab-group>
+				</mat-card-content>
+		     </mat-card>
+
+	</div>
+  
+</div>
+</div>
+
+<mat-card class="newsArea" style="
+    padding: 20px;
+    margin: 20px;" flex-gt-xs="100" flex-gt-sm="100">
+    	<mat-card-header>
+  	<mat-card-title>Investemnt Products News</mat-card-title></mat-card-header>
+  	<mat-card-content>
+  		<mat-selection-list style="text-align: left;">
+		  <mat-list-option mat-list-item-ripple mat-ripple *ngFor="let message of news">
+		       <h3 style="color:darkturquoise" matLine> {{message.name}} </h3>
+		    <div matLine>
+		    <p>
+		      <span style="color:lightgrey" > {{message.description}} </span>		     
+			</p>
+			<div><span style="color:lightgrey" > -- {{message.created}} </span> </div>
+			</div>
+		    <mat-divider class="background-divider" *ngIf="!last"></mat-divider>
+		  </mat-list-option>
+	</mat-selection-list>
+  	</mat-card-content>
+  	<a mat-raised-button color="primary" class="pull_button" routerLink="/news"></a>
+    </mat-card>
+
+</div>
