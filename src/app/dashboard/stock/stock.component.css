@@ -18,5 +18,20 @@
 }
 
 ::ng-deep .newsArea .mat-list-item {
-  height: 100px !important;
+  height: 150px !important;
+}
+
+::ng-deep .HOLD a
+{
+  background-color:goldenrod !important;
+}
+
+::ng-deep .SELL a
+{
+  background-color:rgb(207, 57, 57) !important;
+}
+
+::ng-deep .BUY a
+{
+  background-color:green !important;
 }
