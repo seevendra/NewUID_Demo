@@ -34,6 +34,7 @@ import {MatInputModule} from '@angular/material/input';
 import { CovalentNotificationsModule } from '@covalent/core/notifications';
 import { CovalentSearchModule } from '@covalent/core/search';
 import { CovalentMenuModule } from '@covalent/core/menu';
+import { SpeechComponent } from './speech/speech.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { CovalentMenuModule } from '@covalent/core/menu';
     SidenavListComponent,
     AppHeaderComponent,
     StockComponent,
+    SpeechComponent,
     ],
   imports: [
     BrowserModule,

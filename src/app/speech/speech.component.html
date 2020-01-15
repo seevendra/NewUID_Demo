@@ -1,0 +1,36 @@
+
+<div id="chat"  style="width:100%; margin-top: 65px;">
+  <div layout-gt-xs="row">
+    <mat-card flex-gt-xs="100" class="card_layout">
+
+<div class="chat">
+  <div class="chat-history">
+    <div style="text-align:center">
+       <div class="sara-chatbox" >
+        <ng-container *ngFor="let message of messages | async; let i=index" >
+          <div class="clearfix"></div>
+          <div class="message-data" [ngClass]="{'alignBot':message.sender === 'bot','alignUser':message.sender != 'bot'}">
+            <span class="message-data-name">
+              <i class="fa fa-circle online"></i> {{message.sender === 'bot' ?'Investiaa':'You'}}</span>
+            <span class="message-data-time">
+              {{ messageDate[i] | date : "medium" }}
+            </span>
+          </div>
+          <div class="message" [ngClass]="{'bot my-message':message.sender === 'bot','user other-message float-right':message.sender != 'bot'}">
+            {{message.payload}}
+          </div>
+        </ng-container>      
+        <div class="actionArea" #chatSendButton>
+        <input class="inputBox" [(ngModel)]="formValue" type="text" (keyup.enter)="sendMessage()" #myInput />
+        <button  mat-raised-button color="warn" class="button-send" (click)="sendMessage()" >send</button>
+        {{ myInput.focus()}}
+        {{   chatSendButton.scrollIntoViewIfNeeded({ behavior: 'smooth', block: 'start' })  }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</mat-card>
+</div>
+</div>

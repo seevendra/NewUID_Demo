@@ -6,7 +6,7 @@
 		<div layout-gt-xs="row">
 			<mat-card flex-gt-xs="50" class="card_layout">
 				<mat-card-header>
-					<mat-card-title>Investment Summary</mat-card-title>
+					<mat-card-title>Investment Allocation (%)</mat-card-title>
 				</mat-card-header>
 				<mat-card-content>
 					<div style="display: block">
@@ -34,7 +34,7 @@
 
 			<mat-card flex-gt-xs="50" class="card_layout">
 				<mat-card-header>
-					<mat-card-title>Risk Score vs Return </mat-card-title>
+					<mat-card-title>Performance ( Quarter wise)</mat-card-title>
 				</mat-card-header>
 				<mat-card-content>
 					<div style="display: block;">
@@ -92,7 +92,7 @@
 								</div>
 
 							</mat-tab>
-							<mat-tab label="Cash Funds">
+							<mat-tab label="Exchange Traded Funds">
 								<div>
 									<div style="display: block;">
 										<table td-data-table>
@@ -186,5 +186,9 @@
 		</mat-card-content>
 		<a mat-raised-button color="primary" class="pull_button" routerLink="/news"></a>
 	</mat-card>
+
+	<button routerLink="/speech" title="Chat with Investiaa" style="background-color: white;" class="mat-fab-bottom-right" mat-fab>
+        <mat-icon class="icon" color="warn">chat</mat-icon>
+      </button>
 
 </div>

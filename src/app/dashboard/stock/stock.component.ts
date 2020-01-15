@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ChartDataSets, ChartOptions } from 'chart.js';
 import { Color, BaseChartDirective, Label } from 'ng2-charts';
 import * as pluginAnnotations from 'chartjs-plugin-annotation';
-import { NewsApiService} from '../../news-api.service'
+import { NewsApiService } from '../../news-api.service'
 
 @Component({
   selector: 'app-stock',
@@ -16,8 +16,8 @@ export class StockComponent implements OnInit {
   mArticles: Array<any>;
   mSources: Array<any>;
 
-  public pieChartLabels = ['Retirement Fund 100', 'Domestic Mutual Fund 2020', 'Easyearn ETF Equity 2025'];
-  public pieChartData = [1502, 578, 1000];
+  public pieChartLabels = ['Mutual Funds (MF)', 'Exchange Traded Funds (ETF)', 'Retirement Plans', ];
+  public pieChartData = [35, 25, 40];
   public pieChartType = 'pie';
   public donutChartType = 'doughnut';
   public donutChartData = [7.4, 6, 5];
@@ -60,19 +60,19 @@ export class StockComponent implements OnInit {
     }
   };
 
-  public barChartLabels = ['Mutual Funds', 'Cash Funds', 'Retirement Plans'];
+  public barChartLabels = ['Mutual Funds', 'ETF Funds', 'Retirement Plans'];
   public barChartType = 'bar';
   public barChartLegend = true;
   public barChartData = [
-    { data: [500, 1559, 1180], label: 'Invested Amount' },
-    { data: [728, 2348, 1440], label: 'Return Amount' }
+    { data: [54425, 38875, 62200], label: 'Invested Amount' },
+    { data: [66874, 69987, 180765], label: 'Return Amount' }
   ];
 
   public lineChartData: ChartDataSets[] = [
-    { data: [12, 17, 27, 32, 27, 21], label: 'Risk Score' },
-    { data: [21, 25, 15, 35, 31, 15], label: 'Profit Percentage' },
+    { data: [10, 14, 11, 7, 10, 15], label: 'ETF' },
+    { data: [7, 10, 8, 9, 12, 10], label: 'MF' }
   ];
-  public lineChartLabels: Label[] = ['Q4-2018','Q1-2019', 'Q2-2019', 'Q3-2019', 'Q4-2019', 'Q1-2020'];
+  public lineChartLabels: Label[] = ['Q4-2018', 'Q1-2019', 'Q2-2019', 'Q3-2019', 'Q4-2019', 'Q1-2020'];
   public lineChartOptions: (ChartOptions & { annotation: any }) = {
     responsive: true,
     legend: {
@@ -89,7 +89,7 @@ export class StockComponent implements OnInit {
           id: 'y-axis-0',
           position: 'left',
         }
-       ]
+      ]
     },
     annotation: {
       annotations: [
@@ -120,7 +120,7 @@ export class StockComponent implements OnInit {
     { data: ['BUY', 14200, 200, 74.91, 100.00, 149.82, 782, 0.055], label: 'VITAX' }
   ];
   // tslint:disable-next-line:max-line-length
-  public MutualFundsDataLabels = ['Suggestion', 'Invested Amount', 'Holding Units', 'Current NAV','Target NAV', 'Current Value', 'G/L', 'Return Abs %'];
+  public MutualFundsDataLabels = ['Suggestion', 'Invested Amount', 'Holding Units', 'Current NAV', 'Target NAV', 'Current Value', 'G/L', 'Return Abs %'];
 
   public CashFundsData = [
     { data: ['SELL', 10, 1134.4, 11344, 1395.11, 13951.1, 552607.1], label: 'GOOGL' },
@@ -164,11 +164,11 @@ export class StockComponent implements OnInit {
   ];
 
   ngOnInit() {
-       this.newsapi.getArticleByID('APPL').subscribe(data => { debugger; this.mArticles = data['articles'];}) ;
+    this.newsapi.getArticleByID('APPL').subscribe(data => { debugger; this.mArticles = data['articles']; });
   }
 
-   // events
-   public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
+  // events
+  public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
     console.log(event, active);
   }
 

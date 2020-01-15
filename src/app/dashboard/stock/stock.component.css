@@ -35,3 +35,12 @@
 {
   background-color:green !important;
 }
+
+.mat-fab-bottom-right{
+  top: auto !important;
+  right: 30px !important;
+  bottom: 30px !important;
+  left: auto !important;
+  position: fixed !important;
+  z-index:3381037093709371;
+}

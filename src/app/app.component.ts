@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
-import { Router } from "@angular/router";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,11 +8,8 @@ import { Router } from "@angular/router";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'my-app';
+  title = 'Unified Investment Dashboard';
 
   constructor(private router: Router) {}
 
-  ngOnInit(){
-  	this.router.navigate(['/stock']);
-  }
 }
