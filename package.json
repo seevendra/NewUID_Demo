@@ -28,7 +28,7 @@
     "@covalent/markdown": "^2.0.1",
     "@swimlane/ngx-charts": "^10.1.0",
     "api-ai-javascript": "^2.0.0-beta.21",
-    "chart.js": "^2.8.0",
+    "chart.js": "^2.9.4",
     "chartjs-plugin-annotation": "^0.5.7",
     "core-js": "^2.5.4",
     "ng2-charts": "^2.2.5",
